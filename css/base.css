@@ -1,0 +1,67 @@
+:root {
+  --marino: #0e1a3a;
+  --marino-2: #16264f;
+  --rosa: #f7b6cf;
+  --rosa-claro: #ffd9e8;
+  --azul: #bcd7f5;
+  --crema: #fff7f2;
+  --texto: #f4f6ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  color: var(--texto);
+  background:
+    radial-gradient(ellipse at 50% 0%, #3a2a5c 0%, transparent 55%),
+    linear-gradient(180deg, var(--marino-2), var(--marino));
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+#fondo { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.flotante { position: absolute; bottom: -40px; opacity: 0; color: var(--rosa); animation: subir linear infinite; }
+@keyframes subir {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: .7; }
+  100% { transform: translateY(-110vh) rotate(40deg); opacity: 0; }
+}
+
+main { position: relative; z-index: 1; height: 100%; }
+
+.pantalla {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px 20px; text-align: center;
+  opacity: 0; visibility: hidden; transform: translateY(16px);
+  transition: opacity .6s, transform .6s, visibility .6s;
+}
+.pantalla.activa { opacity: 1; visibility: visible; transform: none; }
+.pantalla-scroll { justify-content: flex-start; overflow-y: auto; padding-bottom: 70px; }
+
+h1, h2 { font-family: 'Caveat', cursive; font-weight: 700; color: var(--rosa-claro); line-height: 1.05; }
+h1 { font-size: clamp(46px, 14vw, 76px); }
+h2 { font-size: clamp(34px, 9vw, 48px); }
+p { font-size: 17px; line-height: 1.5; max-width: 420px; }
+.ayuda { font-size: 14px; opacity: .75; }
+
+.boton {
+  font: 600 17px 'Quicksand', sans-serif;
+  color: var(--marino);
+  background: linear-gradient(135deg, var(--rosa-claro), var(--rosa));
+  border: 0; border-radius: 999px; padding: 13px 28px; cursor: pointer;
+  box-shadow: 0 8px 22px rgba(247, 182, 207, .35);
+  transition: transform .2s;
+}
+.boton:active { transform: scale(.96); }
+.boton-chico { font-size: 14px; padding: 8px 18px; }
+
+#btn-musica {
+  position: fixed; top: 14px; right: 14px; z-index: 5;
+  width: 42px; height: 42px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(255, 217, 232, .18); color: var(--rosa-claro); font-size: 20px;
+}
+#btn-musica.pausada { opacity: .45; }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Feliz cumpleaños, Ana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pastel.css">
+  <link rel="stylesheet" href="css/carrusel.css">
+  <link rel="stylesheet" href="css/regalo.css">
+  <link rel="stylesheet" href="css/cupones.css">
+</head>
+<body>
+  <div id="fondo"></div>
+  <button id="btn-musica" aria-label="Música" hidden>♪</button>
+
+  <main>
+    <!-- 1. Pastel -->
+    <section id="pantalla-pastel" class="pantalla activa">
+      <h2 data-texto="pastelTitulo"></h2>
+      <div class="pastel" id="pastel">
+        <div class="velas">
+          <button class="vela" aria-label="Vela 1"><span class="llama"></span><span class="cuerpo">1</span></button>
+          <button class="vela" aria-label="Vela 8"><span class="llama"></span><span class="cuerpo">8</span></button>
+        </div>
+        <div class="capa capa-arriba"></div>
+        <div class="capa capa-medio"></div>
+        <div class="capa capa-abajo"></div>
+        <div class="plato"></div>
+      </div>
+      <button id="btn-soplar" class="boton" data-texto="btnSoplar"></button>
+      <p id="aviso-pastel" class="ayuda" data-texto="pastelAyuda"></p>
+    </section>
+
+    <!-- 2. Mensaje -->
+    <section id="pantalla-mensaje" class="pantalla">
+      <h1 data-texto="saludo"></h1>
+      <p data-texto="mensaje"></p>
+      <button id="btn-fotos" class="boton" data-texto="btnFotos"></button>
+    </section>
+
+    <!-- 3. Fotos -->
+    <section id="pantalla-fotos" class="pantalla">
+      <h2 data-texto="fotosTitulo"></h2>
+      <div class="escenario" id="escenario">
+        <div class="cuerda"></div>
+        <div class="luces" id="luces"></div>
+        <div class="pista" id="pista"></div>
+      </div>
+      <div class="controles">
+        <button id="foto-ant" class="flecha" aria-label="Anterior">‹</button>
+        <span id="contador"></span>
+        <button id="foto-sig" class="flecha" aria-label="Siguiente">›</button>
+      </div>
+      <p class="ayuda" data-texto="fotosAyuda"></p>
+      <button id="btn-regalo" class="boton" data-texto="btnRegalo" hidden></button>
+    </section>
+
+    <!-- 4. Regalo -->
+    <section id="pantalla-regalo" class="pantalla">
+      <h2 data-texto="regaloTitulo"></h2>
+      <button id="regalo" class="regalo" aria-label="Regalo">
+        <span class="destello"></span>
+        <span class="caja"></span>
+        <span class="cinta-v"></span>
+        <span class="tapa"><span class="lazo"></span></span>
+      </button>
+      <div class="progreso" id="progreso-regalo"></div>
+      <p class="ayuda" data-texto="regaloAyuda"></p>
+    </section>
+
+    <!-- 5. Cupones -->
+    <section id="pantalla-cupones" class="pantalla pantalla-scroll">
+      <h2 data-texto="cuponesTitulo"></h2>
+      <p data-texto="cuponesSub"></p>
+      <div class="cupones" id="cupones"></div>
+      <button id="abrir-terminos" class="terminos" data-texto="terminosLink"></button>
+      <div class="carta" id="carta"></div>
+    </section>
+  </main>
+
+    <div id="modal-terminos" class="modal" hidden>
+    <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="terminos-titulo">
+      <h3 id="terminos-titulo" data-texto="terminosTitulo"></h3>
+      <p data-texto="terminosTexto"></p>
+      <button id="cerrar-terminos" class="boton boton-chico" data-texto="terminosCerrar"></button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/efectos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pastel.js"></script>
+  <script src="js/carrusel.js"></script>
+  <script src="js/regalo.js"></script>
+  <script src="js/cupones.js"></script>
+</body>
+</html>

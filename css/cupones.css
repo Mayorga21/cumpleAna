@@ -1,0 +1,48 @@
+.cupones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 460px; }
+
+.cupon { perspective: 800px; height: 170px; cursor: pointer; }
+.cupon-int { position: relative; width: 100%; height: 100%; transition: transform .6s; transform-style: preserve-3d; }
+.cupon.volteado .cupon-int { transform: rotateY(180deg); }
+
+.cara {
+  position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 14px; padding: 14px 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .3);
+}
+.frente { background: linear-gradient(135deg, var(--rosa-claro), var(--rosa)); color: var(--marino); }
+.frente .num { font: 700 28px 'Caveat', cursive; }
+.frente .icono { font-size: 30px; }
+.frente .toca { font-size: 13px; font-weight: 600; opacity: .8; }
+
+.dorso { background: var(--crema); color: #14305f; transform: rotateY(180deg); }
+.dorso h3 { font: 700 24px 'Caveat', cursive; line-height: 1; }
+.dorso p { font-size: 13px; line-height: 1.35; }
+
+.cupon.reclamado .dorso::after {
+  content: ""; position: absolute; inset: 0; border-radius: 14px; background: rgba(255, 247, 242, .55);
+}
+.boton-chico:disabled { opacity: .7; cursor: default; position: relative; z-index: 1; }
+
+.terminos {
+  margin-top: 14px; padding: 6px 10px;
+  background: none; border: 0; cursor: pointer;
+  font: 400 11px 'Quicksand', sans-serif; color: rgba(244, 246, 255, .45);
+  text-decoration: underline; text-underline-offset: 2px;
+}
+
+.modal {
+  position: fixed; inset: 0; z-index: 30; padding: 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8, 14, 32, .7);
+}
+.modal-caja {
+  width: 100%; max-width: 320px; padding: 22px 20px; border-radius: 16px; text-align: center;
+  background: var(--crema); color: #14305f; box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.modal-caja h3 { font: 700 28px 'Caveat', cursive; line-height: 1; }
+.modal-caja p { font-size: 15px; }
+
+.carta { width: 100%; max-width: 440px; margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+.carta p { font: 500 24px/1.25 'Caveat', cursive; color: var(--rosa-claro); max-width: none; }

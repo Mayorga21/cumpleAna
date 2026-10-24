@@ -1,0 +1,32 @@
+.pastel { position: relative; width: 250px; height: 250px; margin: 6px auto; }
+
+.velas { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: center; gap: 58px; z-index: 3; }
+.vela { background: none; border: 0; padding: 0; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.cuerpo {
+  width: 34px; height: 70px; border-radius: 6px;
+  background: linear-gradient(90deg, #cfe3fb, #eef5ff, #bcd7f5);
+  display: grid; place-items: center;
+  font: 700 30px 'Caveat', cursive; color: #14305f;
+}
+.llama {
+  width: 16px; height: 26px; margin-bottom: 2px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 50% 70%, #fff6c4, #ffc857 60%, #ff9f43);
+  box-shadow: 0 0 18px 6px rgba(255, 200, 100, .55);
+  transform-origin: 50% 100%;
+  animation: parpadeo .18s infinite alternate;
+  transition: opacity .4s, transform .4s;
+}
+@keyframes parpadeo { from { transform: scale(1) rotate(-3deg); } to { transform: scale(.92, 1.06) rotate(3deg); } }
+.pastel.soplando .llama { animation-duration: .07s; }
+.vela.apagada .llama { opacity: 0; transform: scale(.1); animation: none; }
+
+.capa { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 14px 14px 8px 8px; }
+.capa::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 16px;
+  background: radial-gradient(circle at 10px 0, var(--crema) 9px, transparent 10px) 0 0 / 20px 16px repeat-x;
+}
+.capa-arriba { top: 96px; width: 140px; height: 44px; background: var(--rosa-claro); }
+.capa-medio { top: 138px; width: 190px; height: 48px; background: var(--rosa); }
+.capa-abajo { top: 184px; width: 240px; height: 52px; background: var(--azul); }
+.plato { position: absolute; top: 232px; left: 50%; transform: translateX(-50%); width: 270px; height: 12px; border-radius: 50%; background: rgba(255, 247, 242, .85); }
